@@ -22,11 +22,21 @@ print("[S]: Server IP address is {}".format(localhost_ip))
 csockid, addr = ss.accept()
 print ("[S]: Got a connection request from a client at {}".format(addr))
 
-# send a intro message to the client.  
-msg = csockid.recv(200)
-msg = msg[::-1]
-csockid.send(msg.encode('utf-8'))
-
-# Close the server socket
-ss.close()
-exit()
+# receive message from the client.
+code = "12308471"
+f = open("out-proj.txt", "w")
+while True:
+    msg = csockid.recv(200)
+    if msg == code:
+        break
+    msg = msg.rstrip('\n')[::-1]+'\n'
+    f.write(msg)
+f.close()
+while True:
+    msg = csockid.recv(200)
+    if msg == "quit":
+        # Close the server socket
+        ss.close()
+        exit()
+    msg = msg[::-1]
+    csockid.send(msg.encode('utf-8'))
