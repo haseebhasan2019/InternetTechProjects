@@ -1,8 +1,10 @@
-1. Aatif Sayed (), Haseeb Hasan (hh508)
-2. The server and client sockets are created but there are errors 
-because the address is already in use so the connection is refused
-There is likely a timeout period where the connection cannot be reused.
-
+1. Aatif Sayed (NetID: as3259), Haseeb Hasan (NetID: hh508)
+2. 
+3. After running step 2, we noticed that the program threw 2 exceptions "Exception in thread server: error: 
+[Errno 98] Address already in use" The server and client sockets are created but there are errors 
+because the address is already in use so the connection is refused.
+There is likely a timeout period where the connection cannot be reused
+because of Threads?
 [S]: Server socket created
 [C]: Client socket created
 Done.
